@@ -9,7 +9,7 @@ from flask_socketio import SocketIO, emit, join_room
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "fixart-secret-2025"
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
 
 # ── Global job store ──────────────────────────────────────────────────────────
 jobs = {}   # job_id -> { status, logs, result_url, prompt, created_at, image_name }
